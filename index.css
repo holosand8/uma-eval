@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&Raleway:wght@800&family=Stick&display=swap");
+html {
+    font-family: "Stick", sans-serif;
+    font-size: 14px;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.6;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    background-color: #333333;
+    color: #eeeeee;
+}
+body > * {
+    padding: 20px calc((100vw - 1400px) / 2);
+}
+@media screen and (max-width: 1440px) {
+    body > * {
+        padding: 20px;
+    }
+}
+header {
+    background-color: #335533;
+}
+main {
+    border-bottom: 1px solid #222222;
+}
+footer {
+    border-top: 1px solid #555555;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+h1 {
+    font-size: 2.0rem;
+}
+form {
+    margin: 10px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+@media screen and (max-width: 640px) {
+    form {
+        display: block;
+    }
+}
+
+.eval {
+    background-color: #111111;
+    border: 1px inset #999999;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+}
+.eval dl, .eval dt, .eval dd {
+    margin: 0;
+    padding: 0;
+}
+.eval .point {
+    width: 200px;
+}
+.eval .rank {
+    width: 100px;
+}
+.eval dt:after {
+    content: ":";
+}
+.eval dd {
+    font-size: 4.0rem;
+    line-height: 1.1;
+    font-feature-settings: "palt";
+}
+[data-eval] {
+    font-family: "Roboto", sans-serif;
+}
+[data-rank] {
+    font-family: "Railway", sans-serif;
+    font-weight: bold;
+    letter-spacing: -5px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+@media screen and (max-width: 640px) {
+    .eval {
+        position: sticky;
+        top: 20px;
+        width: 240px;
+        align-items: center;
+    }
+    .eval .point {
+        width: 160px;
+    }
+    .eval .point dd {
+        font-size: 2.0rem;
+    }
+    .eval .rank {
+        width: 80px;
+    }
+    .eval .rank dt {
+        display: none;
+    }
+    .eval .rank dd {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+}
+
+[data-rank^="G"] {
+    color: #cccccc;
+    background: linear-gradient(#ffffff, #999999 75%);
+    -webkit-text-stroke: 2px #666666;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+[data-rank^="F"] {
+    color: #aa99ff;
+    background: linear-gradient(#ffffff, #aa33ff 75%);
+    -webkit-text-stroke: 2px #7766aa;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+[data-rank^="E"] {
+    color: #ffaaff;
+    background: linear-gradient(#ffffff, #ff33ff 50%);
+    -webkit-text-stroke: 2px #996699;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+[data-rank^="D"] {
+    color: #aaffff;
+    background: linear-gradient(#ffffff, #33ffff 50%);
+    -webkit-text-stroke: 2px #339999;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+[data-rank^="C"] {
+    color: #aaffaa;
+    background: linear-gradient(#ffffff, #66ff66 50%);
+    -webkit-text-stroke: 2px #339933;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+[data-rank^="B"] {
+    color: #ffaacc;
+    background: linear-gradient(#ffffff, #ff66cc 50%);
+    -webkit-text-stroke: 1px #993366;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+[data-rank^="A"] {
+    color: #ffbbaa;
+    background: linear-gradient(#ffffff, #ff9966 50%, #ff3300);
+    -webkit-text-stroke: 1px #993300;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+[data-rank^="S"] {
+    color: #ffff99;
+    background: linear-gradient(#ffffff, #ffcc33 50%, #ff9900);
+    -webkit-text-stroke: 1px #999900;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+a {
+    color: #ffcc99;
+}
+.remove {
+    text-align: center;
+}
+button {
+    background-color: #556677;
+    color: #eeeeee;
+    padding: 10px 25px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+button:active {
+    padding: 11px 19px 9px 21px;
+}
+label {
+    display: block;
+    padding: 5px 0;
+}
+fieldset {
+    padding: 20px;
+    margin: 0;
+    border: 1px solid #999999;
+}
+@media screen and (max-width: 640px) {
+    * + fieldset {
+        margin: 20px 0 0;
+    }
+}
+fieldset dl {
+    margin: 0;
+}
+fieldset * + dl {
+    margin: 10px 0 0;
+}
+fieldset dt {
+    padding: 0;
+    margin: 0;
+}
+fieldset dd {
+    padding: 0;
+    margin: 0;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+input[type="number"] {
+    font-size: 1.5rem;
+    width: 5.0em;
+    padding: 10px;
+    background-color: #191919;
+    color: #ffffff;
+}
+[data-selected="false"] input[type="number"] {
+    background-color: #282828;
+    color: #666666;
+}
+.starslist {
+    margin: 5px 0 0;
+}
+.numlist {
+    margin: 5px 0 0;
+    display: grid;
+    font-family: "Roboto", sans-serif;
+}
+#current .numlist {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#ura .numlist {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+[data-selected="false"] .numlist {
+    color: #777777;
+}
+.stars {
+    font-size: 1.4rem;
+}
+.stars.on {
+    color: #ffdd88;
+}
+.stars.off {
+    color: #dddddd;
+}
+.switch {
+    margin: 20px 0 0;
+    padding: 0;
+    border-top: 1px solid #222222;
+}
+.switch p {
+    margin: 0;
+}
+.switch p:first-child {
+    padding: 20px 0 0;
+    border-top: 1px solid #555555;
+}
+.add {
+    text-align: center;
+}
+.add button {
+    font-family: "Roboto", sans-serif;
+    font-size: 3.0rem;
+}
+
+footer {
+    font-family: "Roboto", sans-serif;
+}
+footer p {
+    text-align: center;
+    margin: 0;
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>評価値計算補助ツール</title>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>評価値計算補助ツール</h1>
+            <p>URA ファイナルズ予選中のトレーニング吟味などにお使いください</p>
+        </header>
+        <main>
+            <div class="eval">
+                <dl class="point">
+                    <dt>評価点</dt>
+                    <dd data-eval="0">0</dd>
+                </dl>
+                <dl class="rank">
+                    <dt>ランク</dt>
+                    <dd data-rank="G">G</dd>
+                </dl>
+            </div>
+            <form>
+                <fieldset id="current">
+                    <legend>現在のステータスを入力</legend>
+                    <div class="status_fields">
+                        <dl>
+                            <dt>スピード</dt>
+                            <dd><input type="number" value="0" min="0" max="1200" data-field="spd"></dd>
+                        </dl>
+                        <dl>
+                            <dt>スタミナ</dt>
+                            <dd><input type="number" value="0" min="0" max="1200" data-field="vit"></dd>
+                        </dl>
+                        <dl>
+                            <dt>パワー</dt>
+                            <dd><input type="number" value="0" min="0" max="1200" data-field="pow"></dd>
+                        </dl>
+                        <dl>
+                            <dt>根性</dt>
+                            <dd><input type="number" value="0" min="0" max="1200" data-field="men"></dd>
+                        </dl>
+                        <dl>
+                            <dt>賢さ</dt>
+                            <dd><input type="number" value="0" min="0" max="1200" data-field="int"></dd>
+                        </dl>
+                    </div>
+                    <dl>
+                        <dt>★の数</dt>
+                        <dd>
+                            <ul class="starslist">
+                                <li><label><input type="radio" name="star" value="2"> <span class="stars on">★★</span><span class="stars off">☆☆☆</span> (2) 以下</label></li>
+                                <li><label><input type="radio" name="star" value="3" checked> <span class="stars on">★★★</span><span class="stars off">☆☆</span> (3) 以上</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>固有スキルLv</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="unique" value="1" checked> 1</label></li>
+                                <li><label><input type="radio" name="unique" value="2"> 2</label></li>
+                                <li><label><input type="radio" name="unique" value="3"> 3</label></li>
+                                <li><label><input type="radio" name="unique" value="4"> 4</label></li>
+                                <li><label><input type="radio" name="unique" value="5"> 5</label></li>
+                                <li><label><input type="radio" name="unique" value="6"> 6</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </fieldset>
+                <fieldset data-group="training" data-selected="false">
+                    <legend>トレ候補1</legend>
+                    <div class="status_fields">
+                        <dl>
+                            <dt>スピード</dt>
+                            <dd><input type="number" value="0" min="0" max="100" data-field="spd"></dd>
+                        </dl>
+                        <dl>
+                            <dt>スタミナ</dt>
+                            <dd><input type="number" value="0" min="0" max="100" data-field="vit"></dd>
+                        </dl>
+                        <dl>
+                            <dt>パワー</dt>
+                            <dd><input type="number" value="0" min="0" max="100" data-field="pow"></dd>
+                        </dl>
+                        <dl>
+                            <dt>根性</dt>
+                            <dd><input type="number" value="0" min="0" max="100" data-field="men"></dd>
+                        </dl>
+                        <dl>
+                            <dt>賢さ</dt>
+                            <dd><input type="number" value="0" min="0" max="100" data-field="int"></dd>
+                        </dl>
+                    </div>
+                    <div class="switch">
+                        <p><label><input type="radio" data-switch="enabled" name="training" value="1"> 有効化する</label></p>
+                        <p><label><input type="radio" data-switch="disabled" name="training" value="0" disabled> 無効化する</label></p>
+                    </div>
+                    <p class="remove" style="display: none;"><button data-remove="1">削除する</button></p>
+                </fieldset>
+                <div id="add" class="add">
+                    <p>トレ候補追加</p>
+                    <p><button value="+">+</button></p>
+                </div>
+                <fieldset id="ura" data-group="ura" data-selected="false">
+                    <legend>URA で獲得するステータス</legend>
+                    <div>
+                        <dl>
+                            <dt>各レースのステータス上昇 (10 〜 19)</dt>
+                            <dd><input type="number" min="10" max="19" name="racebonus" value="12"></dd>
+                        </dl>
+                    </div>
+                    <dl>
+                        <dt>残りレース数</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="racecount" value="0"> 0</label></li>
+                                <li><label><input type="radio" name="racecount" value="1"> 1</label></li>
+                                <li><label><input type="radio" name="racecount" value="2"> 2</label></li>
+                                <li><label><input type="radio" name="racecount" value="3" checked> 3</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>記者ボーナス</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="writer" value="0" checked> 0</label></li>
+                                <li><label><input type="radio" name="writer" value="3"> 3</label></li>
+                                <li><label><input type="radio" name="writer" value="5"> 5</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>理事長ボーナス</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="director" value="10" checked> 10</label></li>
+                                <li><label><input type="radio" name="director" value="3"> 15</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>友人カードボーナス</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="peer" value="0" checked> 0</label></li>
+                                <li><label><input type="radio" name="peer" value="6"> 6</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>グッドエンディングボーナス</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="ending" value="0" checked> 0</label></li>
+                                <li><label><input type="radio" name="ending" value="5"> 5</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="switch">
+                        <p><label><input type="radio" data-switch="enabled" name="ura" value="1"> 有効化する</label></p>
+                        <p><label><input type="radio" data-switch="disabled" name="ura" value="0" disabled> 無効化する</label></p>
+                    </div>
+                </fieldset>
+            </form>
+        </main>
+        <footer>
+            <p>Copyright &copy; <a href="https://twitter.com/holosand8">holosand8</a> all right reserverd.</p>
+        </footer>
+    </body>
+</html>
+

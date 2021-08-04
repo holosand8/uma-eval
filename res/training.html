@@ -1,0 +1,30 @@
+<fieldset data-group="training" data-selected="false">
+    <legend></legend>
+    <div class="status_fields">
+        <dl>
+            <dt>スピード</dt>
+            <dd><input type="number" value="0" min="0" max="100" data-field="spd"></dd>
+        </dl>
+        <dl>
+            <dt>スタミナ</dt>
+            <dd><input type="number" value="0" min="0" max="100" data-field="vit"></dd>
+        </dl>
+        <dl>
+            <dt>パワー</dt>
+            <dd><input type="number" value="0" min="0" max="100" data-field="pow"></dd>
+        </dl>
+        <dl>
+            <dt>根性</dt>
+            <dd><input type="number" value="0" min="0" max="100" data-field="men"></dd>
+        </dl>
+        <dl>
+            <dt>賢さ</dt>
+            <dd><input type="number" value="0" min="0" max="100" data-field="int"></dd>
+        </dl>
+    </div>
+    <div class="switch">
+        <p><label><input type="radio" data-switch="enabled" name="training" value="1"> 有効化する</label></p>
+        <p><label><input type="radio" data-switch="disabled" name="training" value="0" disabled> 無効化する</label></p>
+    </div>
+    <p class="remove" style="display: none;"><button data-remove="1">削除する</button></p>
+</fieldset>
