@@ -73,6 +73,67 @@
                         </dd>
                     </dl>
                 </fieldset>
+                <fieldset id="ura" data-group="ura" data-selected="false">
+                    <legend>URA で獲得するステータス</legend>
+                    <div>
+                        <dl>
+                            <dt>各レースのステータス上昇 (10 〜 19)</dt>
+                            <dd><input type="number" min="10" max="19" name="racebonus" value="12"></dd>
+                        </dl>
+                    </div>
+                    <dl>
+                        <dt>残りレース数</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="racecount" value="0"> 0</label></li>
+                                <li><label><input type="radio" name="racecount" value="1"> 1</label></li>
+                                <li><label><input type="radio" name="racecount" value="2"> 2</label></li>
+                                <li><label><input type="radio" name="racecount" value="3" checked> 3</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>記者ボーナス</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="writer" value="0"> 0</label></li>
+                                <li><label><input type="radio" name="writer" value="3"> 3</label></li>
+                                <li><label><input type="radio" name="writer" value="5" checked> 5</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>理事長ボーナス</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="director" value="10"> 10</label></li>
+                                <li><label><input type="radio" name="director" value="15" checked> 15</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>友人カードボーナス</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="peer" value="0" checked> 0</label></li>
+                                <li><label><input type="radio" name="peer" value="6"> 6</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>グッドエンディングボーナス</dt>
+                        <dd>
+                            <ul class="numlist">
+                                <li><label><input type="radio" name="ending" value="0"> 0</label></li>
+                                <li><label><input type="radio" name="ending" value="5" checked> 5</label></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="switch">
+                        <p><label><input type="radio" data-switch="enabled" name="ura" value="1"> 有効化する</label></p>
+                        <p><label><input type="radio" data-switch="disabled" name="ura" value="0" disabled> 無効化する</label></p>
+                    </div>
+                </fieldset>
                 <fieldset data-group="training" data-selected="false">
                     <legend>トレ候補1</legend>
                     <div class="status_fields">
@@ -103,76 +164,16 @@
                     </div>
                     <p class="remove" style="display: none;"><button data-remove="1">削除する</button></p>
                 </fieldset>
-                <div id="add" class="add">
+            </form>
+            <div class="add">
+                <div id="add">
                     <p>トレ候補追加</p>
                     <p><button value="+">+</button></p>
                 </div>
-                <fieldset id="ura" data-group="ura" data-selected="false">
-                    <legend>URA で獲得するステータス</legend>
-                    <div>
-                        <dl>
-                            <dt>各レースのステータス上昇 (10 〜 19)</dt>
-                            <dd><input type="number" min="10" max="19" name="racebonus" value="12"></dd>
-                        </dl>
-                    </div>
-                    <dl>
-                        <dt>残りレース数</dt>
-                        <dd>
-                            <ul class="numlist">
-                                <li><label><input type="radio" name="racecount" value="0"> 0</label></li>
-                                <li><label><input type="radio" name="racecount" value="1"> 1</label></li>
-                                <li><label><input type="radio" name="racecount" value="2"> 2</label></li>
-                                <li><label><input type="radio" name="racecount" value="3" checked> 3</label></li>
-                            </ul>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>記者ボーナス</dt>
-                        <dd>
-                            <ul class="numlist">
-                                <li><label><input type="radio" name="writer" value="0" checked> 0</label></li>
-                                <li><label><input type="radio" name="writer" value="3"> 3</label></li>
-                                <li><label><input type="radio" name="writer" value="5"> 5</label></li>
-                            </ul>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>理事長ボーナス</dt>
-                        <dd>
-                            <ul class="numlist">
-                                <li><label><input type="radio" name="director" value="10" checked> 10</label></li>
-                                <li><label><input type="radio" name="director" value="3"> 15</label></li>
-                            </ul>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>友人カードボーナス</dt>
-                        <dd>
-                            <ul class="numlist">
-                                <li><label><input type="radio" name="peer" value="0" checked> 0</label></li>
-                                <li><label><input type="radio" name="peer" value="6"> 6</label></li>
-                            </ul>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>グッドエンディングボーナス</dt>
-                        <dd>
-                            <ul class="numlist">
-                                <li><label><input type="radio" name="ending" value="0" checked> 0</label></li>
-                                <li><label><input type="radio" name="ending" value="5"> 5</label></li>
-                            </ul>
-                        </dd>
-                    </dl>
-                    <div class="switch">
-                        <p><label><input type="radio" data-switch="enabled" name="ura" value="1"> 有効化する</label></p>
-                        <p><label><input type="radio" data-switch="disabled" name="ura" value="0" disabled> 無効化する</label></p>
-                    </div>
-                </fieldset>
-            </form>
+            </div>
         </main>
         <footer>
             <p>Copyright &copy; <a href="https://twitter.com/holosand8">holosand8</a> all right reserverd.</p>
         </footer>
     </body>
 </html>
-

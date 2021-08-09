@@ -14,9 +14,9 @@ body {
     color: #eeeeee;
 }
 body > * {
-    padding: 20px calc((100vw - 1400px) / 2);
+    padding: 20px calc((100vw - 1600px) / 2);
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1640px) {
     body > * {
         padding: 20px;
     }
@@ -40,7 +40,6 @@ form {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
 }
 @media screen and (max-width: 640px) {
     form {
@@ -86,7 +85,7 @@ form {
     background-clip: text;
     text-fill-color: transparent;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 800px) {
     .eval {
         position: sticky;
         top: 20px;
@@ -270,6 +269,8 @@ input[type="number"] {
 }
 .add {
     text-align: center;
+    margin: 20px 0 0;
+    height: 100px;
 }
 .add button {
     font-family: "Roboto", sans-serif;

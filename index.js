@@ -136,11 +136,10 @@
                 return;
             }
 
-            const $add = $("#add");
-            const $c = $t.clone().insertBefore($add);
+            const $c = $t.clone().appendTo($("form"));
             setupHandler($c);
             if (4 <= count) {
-                $add.hide();
+                $("#add").hide();
             }
             adjustTrainings();
         };
